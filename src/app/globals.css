@@ -56,15 +56,12 @@ h6 {
 	inset: -10%;
 	content: "";
 	background:
-		radial-gradient(ellipse at 12% 18%, rgba(72, 83, 161, 0.34), transparent 32%),
-		radial-gradient(ellipse at 78% 28%, rgba(108, 60, 138, 0.25), transparent 35%),
-		radial-gradient(ellipse at 62% 88%, rgba(33, 104, 145, 0.2), transparent 32%),
-		radial-gradient(circle at 30% 70%, rgba(190, 162, 88, 0.08) 0 1px, transparent 1.5px),
-		radial-gradient(circle at 80% 78%, rgba(244, 245, 247, 0.16) 0 1px, transparent 1.5px),
-		#080a12;
-	background-size: auto, auto, auto, 180px 180px, 240px 240px, auto;
-	filter: blur(10px);
-	opacity: 0.9;
+		linear-gradient(rgba(5, 6, 14, 0.48), rgba(5, 6, 14, 0.7)),
+		url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2400&q=85");
+	background-position: center;
+	background-size: cover;
+	filter: blur(3px);
+	opacity: 0.94;
 }
 
 .site-shell::after {
@@ -97,7 +94,10 @@ h6 {
 }
 
 .header-nav a {
-	color: var(--cosmic-lavender);
+	padding: 0.6rem 0.75rem;
+	border: 1px solid color-mix(in srgb, var(--divine-halo) 72%, transparent);
+	background: rgba(65, 38, 101, 0.72);
+	color: #ddd4f4;
 	font-size: 0.7rem;
 	font-weight: 600;
 	letter-spacing: 0.14em;
@@ -107,12 +107,15 @@ h6 {
 
 .header-nav a:hover,
 .header-nav a:focus-visible {
+	background: rgba(101, 58, 143, 0.88);
 	color: var(--starlight);
 }
 
 .cart-trigger {
-	padding: 0;
-	color: var(--cosmic-lavender);
+	padding: 0.6rem 0.75rem;
+	border: 1px solid color-mix(in srgb, var(--divine-halo) 72%, transparent);
+	background: rgba(65, 38, 101, 0.72);
+	color: #ddd4f4;
 	font: inherit;
 	font-size: 0.7rem;
 	font-weight: 600;
@@ -123,6 +126,7 @@ h6 {
 
 .cart-trigger:hover,
 .cart-trigger:focus-visible {
+	background: rgba(101, 58, 143, 0.88);
 	color: var(--starlight);
 }
 
@@ -139,10 +143,20 @@ h6 {
 .account-entry {
 	max-width: 50rem;
 	padding: 10rem 0 8rem;
+	padding-right: clamp(1.5rem, 5vw, 4rem);
+	padding-left: clamp(1.5rem, 5vw, 4rem);
+	border: 1px solid color-mix(in srgb, var(--divine-halo) 82%, transparent);
+	background: linear-gradient(135deg, rgba(56, 32, 91, 0.84), rgba(31, 22, 57, 0.78));
+	box-shadow: 0 24px 80px rgba(18, 7, 31, 0.3);
+	backdrop-filter: blur(8px);
 }
 
 .eyebrow {
+	display: inline-flex;
 	margin: 0 0 1rem;
+	padding: 0.45rem 0.7rem;
+	border: 1px solid color-mix(in srgb, var(--divine-halo) 82%, transparent);
+	background: rgba(70, 40, 108, 0.78);
 	color: var(--divine-halo);
 	font-size: 0.68rem;
 	font-weight: 700;
@@ -201,13 +215,20 @@ h6 {
 }
 
 .button-primary {
-	background: var(--divine-halo);
-	color: var(--cosmic-void);
+	border-color: var(--divine-halo);
+	background: #563485;
+	color: var(--starlight);
 	box-shadow: 0 0 24px rgba(184, 155, 82, 0.14);
 }
 
+.button-primary:hover,
+.button-primary:focus-visible {
+	background: #7048a1;
+}
+
 .button-secondary {
-	border-color: var(--cosmic-lavender);
+	border-color: var(--divine-halo);
+	background: rgba(49, 30, 78, 0.58);
 	color: var(--starlight);
 }
 
