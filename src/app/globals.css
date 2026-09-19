@@ -39,7 +39,7 @@ body::before {
 	inset: -10%;
 	content: "";
 	background:
-		linear-gradient(rgba(5, 8, 18, 0.5), rgba(5, 8, 18, 0.76)),
+		linear-gradient(rgba(30, 10, 51, 0.48), rgba(5, 8, 18, 0.76)),
 		url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2400&q=85");
 	background-position: center;
 	background-size: cover;
@@ -140,10 +140,6 @@ h6 {
 	padding: 10rem 0 8rem;
 	padding-right: clamp(1.5rem, 5vw, 4rem);
 	padding-left: clamp(1.5rem, 5vw, 4rem);
-	border: 1px solid color-mix(in srgb, var(--divine-halo) 82%, transparent);
-	background: linear-gradient(135deg, rgba(35, 70, 105, 0.82), rgba(16, 29, 52, 0.82));
-	box-shadow: 0 24px 80px rgba(3, 12, 28, 0.42);
-	backdrop-filter: blur(8px);
 }
 
 .eyebrow {
@@ -625,9 +621,11 @@ h6 {
 
 .product-image {
 	min-height: 25rem;
+	background-color: rgba(77, 35, 105, 0.54);
 	background-position: center;
 	background-size: cover;
-	filter: saturate(0.78);
+	background-blend-mode: soft-light;
+	filter: saturate(0.72) hue-rotate(12deg);
 }
 
 .product-info {
@@ -654,6 +652,67 @@ h6 {
 	color: var(--divine-halo);
 	font-family: var(--font-display);
 	font-size: 0.9rem;
+}
+
+.price-stack {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.2rem;
+}
+
+.price-stack del {
+	color: var(--cosmic-lavender);
+	font-size: 0.7rem;
+}
+
+.cart-page-content {
+	max-width: 50rem;
+	margin: 5rem auto 8rem;
+}
+
+.cart-page-content h1 {
+	margin: 0;
+	font-size: clamp(2.5rem, 7vw, 6rem);
+	line-height: 0.95;
+}
+
+.cart-page-items {
+	margin-top: 4rem;
+	border-top: 1px solid color-mix(in srgb, var(--cosmic-lavender) 38%, transparent);
+}
+
+.cart-page-item,
+.cart-page-total {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1.5rem 0;
+	border-bottom: 1px solid color-mix(in srgb, var(--cosmic-lavender) 22%, transparent);
+}
+
+.cart-page-item h2 {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.cart-page-item p {
+	margin: 0.45rem 0 0;
+	color: var(--cosmic-lavender);
+	font-size: 0.8rem;
+}
+
+.cart-page-item strong,
+.cart-page-total strong {
+	color: var(--divine-halo);
+	font-family: var(--font-display);
+}
+
+.cart-page-total {
+	margin-bottom: 2rem;
+	border-bottom: 0;
+	color: var(--cosmic-lavender);
 }
 
 .cart-backdrop {

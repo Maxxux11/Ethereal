@@ -28,8 +28,8 @@ export default function Home() {
     <main className="site-shell">
       <header className="site-header">
         <nav className="header-nav header-nav-left" aria-label="Navegación principal">
-          <Link href="#combos">Combos</Link>
-          <Link href="#descuentos">Descuentos</Link>
+          <Link href="/combos">Combos</Link>
+          <Link href="/promociones">Descuentos</Link>
         </nav>
 
         <Link className="brand-mark" href="/" aria-label="Etheral, inicio">
@@ -53,7 +53,6 @@ export default function Home() {
         </p>
         <div className="entry-actions">
           <Link className="button button-primary" href="/registro">Crear cuenta</Link>
-          <Link className="button button-secondary" href="/admin">Área admin</Link>
         </div>
       </section>
 
@@ -96,7 +95,7 @@ export default function Home() {
               <span>Subtotal</span>
               <strong>{formatCOP(cartItems.reduce((total, item) => total + item.price, 0))}</strong>
             </div>
-            <button className="button button-primary cart-checkout" type="button">Finalizar compra</button>
+            <Link className="button button-primary cart-checkout" href="/carrito">Abrir carrito</Link>
           </aside>
         </>
       )}
