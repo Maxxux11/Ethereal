@@ -1,6 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+
+const cartItems = [
+  { id: 1, name: "Órbita tee", detail: "Negro / M", price: 48 },
+  { id: 2, name: "Nebula hoodie", detail: "Índigo / L", price: 96 },
+];
 
 export default function Home() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   return (
     <main className="site-shell">
       <header className="site-header">
@@ -15,7 +25,9 @@ export default function Home() {
 
         <nav className="header-nav header-nav-right" aria-label="Acciones de usuario">
           <Link href="/registro">Cuenta</Link>
-          <Link href="#carrito">Carrito <span aria-hidden="true">(0)</span></Link>
+          <button className="cart-trigger" onClick={() => setIsCartOpen(true)} type="button">
+            Carrito <span aria-hidden="true">({cartItems.length})</span>
+          </button>
         </nav>
       </header>
 
@@ -31,6 +43,37 @@ export default function Home() {
           <Link className="button button-secondary" href="/admin">Área admin</Link>
         </div>
       </section>
+
+      {isCartOpen && (
+        <>
+          <button className="cart-backdrop" onClick={() => setIsCartOpen(false)} type="button" aria-label="Cerrar carrito" />
+          <aside className="cart-drawer" aria-label="Carrito de compras" aria-live="polite">
+            <div className="cart-drawer-header">
+              <div>
+                <p className="eyebrow">Tu selección</p>
+                <h2>Carrito</h2>
+              </div>
+              <button className="drawer-close" onClick={() => setIsCartOpen(false)} type="button" aria-label="Cerrar carrito">×</button>
+            </div>
+            <div className="cart-items">
+              {cartItems.map((item) => (
+                <div className="cart-item" key={item.id}>
+                  <div>
+                    <strong>{item.name}</strong>
+                    <span>{item.detail}</span>
+                  </div>
+                  <span>${item.price.toFixed(2)}</span>
+                </div>
+              ))}
+            </div>
+            <div className="cart-summary">
+              <span>Subtotal</span>
+              <strong>${cartItems.reduce((total, item) => total + item.price, 0).toFixed(2)}</strong>
+            </div>
+            <button className="button button-primary cart-checkout" type="button">Finalizar compra</button>
+          </aside>
+        </>
+      )}
     </main>
   );
 }
