@@ -4,9 +4,22 @@ import Link from "next/link";
 import { useState } from "react";
 
 const cartItems = [
-  { id: 1, name: "Órbita tee", detail: "Negro / M", price: 48 },
-  { id: 2, name: "Nebula hoodie", detail: "Índigo / L", price: 96 },
+  { id: 1, name: "Órbita tee", detail: "Negro / M", price: 189900 },
+  { id: 2, name: "Nebula hoodie", detail: "Índigo / L", price: 329900 },
 ];
+
+const categories = [
+  { slug: "blusas", label: "Blusas", count: "06 piezas" },
+  { slug: "camisetas", label: "Camisetas", count: "08 piezas" },
+  { slug: "sudaderas", label: "Sudaderas", count: "05 piezas" },
+];
+
+const formatCOP = (price: number) =>
+  new Intl.NumberFormat("es-CO", {
+    style: "currency",
+    currency: "COP",
+    maximumFractionDigits: 0,
+  }).format(price);
 
 export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -44,6 +57,19 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="category-section" aria-labelledby="category-title">
+        <p className="eyebrow">Explora la colección</p>
+        <h2 id="category-title">Elige tu dimensión</h2>
+        <div className="category-tabs" role="tablist" aria-label="Categorías de ropa">
+          {categories.map((category) => (
+            <Link className="category-tab" href={`/catalogo/${category.slug}`} key={category.slug}>
+              <span>{category.label}</span>
+              <small>{category.count}</small>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {isCartOpen && (
         <>
           <button className="cart-backdrop" onClick={() => setIsCartOpen(false)} type="button" aria-label="Cerrar carrito" />
@@ -62,13 +88,13 @@ export default function Home() {
                     <strong>{item.name}</strong>
                     <span>{item.detail}</span>
                   </div>
-                  <span>${item.price.toFixed(2)}</span>
+                  <span>{formatCOP(item.price)}</span>
                 </div>
               ))}
             </div>
             <div className="cart-summary">
               <span>Subtotal</span>
-              <strong>${cartItems.reduce((total, item) => total + item.price, 0).toFixed(2)}</strong>
+              <strong>{formatCOP(cartItems.reduce((total, item) => total + item.price, 0))}</strong>
             </div>
             <button className="button button-primary cart-checkout" type="button">Finalizar compra</button>
           </aside>
