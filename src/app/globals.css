@@ -572,11 +572,14 @@ h6 {
 	inset: -10%;
 	content: "";
 	background:
-		linear-gradient(rgba(49, 11, 78, 0.58), rgba(13, 8, 28, 0.78)),
-		url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2400&q=85");
+		linear-gradient(120deg, rgba(31, 10, 56, 0.72), rgba(80, 28, 91, 0.36) 48%, rgba(117, 76, 39, 0.42)),
+		radial-gradient(ellipse at 70% 24%, rgba(222, 169, 77, 0.38), transparent 18%),
+		radial-gradient(ellipse at 28% 70%, rgba(145, 58, 190, 0.48), transparent 30%),
+		url("https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=2400&q=85");
 	background-position: center;
 	background-size: cover;
-	filter: blur(3px) hue-rotate(12deg) saturate(1.15);
+	background-blend-mode: normal, screen, screen, normal;
+	filter: blur(2px) saturate(1.12);
 }
 
 .catalog-header {
