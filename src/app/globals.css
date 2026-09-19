@@ -18,17 +18,41 @@
 	--cosmic-void: #0b0c10;
 	--nebula-deep: #161b28;
 	--nebula-indigo: #1e2235;
-	--cosmic-lavender: #7a7599;
+	--cosmic-lavender: #9aafc7;
 	--starlight: #f4f5f7;
-	--divine-halo: #b89b52;
+	--divine-halo: #a7c6df;
 	--stellar-cyan: #38bdf8;
 }
 
 body {
+	position: relative;
+	isolation: isolate;
 	min-height: 100vh;
 	font-family: var(--font-body);
 	background: #080a12;
 	color: var(--starlight);
+}
+
+body::before {
+	position: fixed;
+	z-index: -2;
+	inset: -10%;
+	content: "";
+	background:
+		linear-gradient(rgba(5, 8, 18, 0.5), rgba(5, 8, 18, 0.76)),
+		url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2400&q=85");
+	background-position: center;
+	background-size: cover;
+	filter: blur(3px);
+}
+
+body::after {
+	position: fixed;
+	z-index: -1;
+	inset: 0;
+	content: "";
+	background: radial-gradient(ellipse at center, transparent 25%, rgba(3, 7, 16, 0.62) 100%);
+	pointer-events: none;
 }
 
 h1,
@@ -48,29 +72,6 @@ h6 {
 	min-height: 100vh;
 	padding: 0 2rem;
 	overflow: clip;
-}
-
-.site-shell::before {
-	position: fixed;
-	z-index: -2;
-	inset: -10%;
-	content: "";
-	background:
-		linear-gradient(rgba(5, 6, 14, 0.48), rgba(5, 6, 14, 0.7)),
-		url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2400&q=85");
-	background-position: center;
-	background-size: cover;
-	filter: blur(3px);
-	opacity: 0.94;
-}
-
-.site-shell::after {
-	position: fixed;
-	z-index: -1;
-	inset: 0;
-	content: "";
-	background: radial-gradient(ellipse at center, transparent 35%, rgba(4, 5, 10, 0.58) 100%);
-	pointer-events: none;
 }
 
 .site-header {
@@ -140,8 +141,8 @@ h6 {
 	padding-right: clamp(1.5rem, 5vw, 4rem);
 	padding-left: clamp(1.5rem, 5vw, 4rem);
 	border: 1px solid color-mix(in srgb, var(--divine-halo) 82%, transparent);
-	background: linear-gradient(135deg, rgba(56, 32, 91, 0.84), rgba(31, 22, 57, 0.78));
-	box-shadow: 0 24px 80px rgba(18, 7, 31, 0.3);
+	background: linear-gradient(135deg, rgba(35, 70, 105, 0.82), rgba(16, 29, 52, 0.82));
+	box-shadow: 0 24px 80px rgba(3, 12, 28, 0.42);
 	backdrop-filter: blur(8px);
 }
 
@@ -150,7 +151,7 @@ h6 {
 	margin: 0 0 1rem;
 	padding: 0.45rem 0.7rem;
 	border: 1px solid color-mix(in srgb, var(--divine-halo) 82%, transparent);
-	background: rgba(70, 40, 108, 0.78);
+	background: rgba(35, 73, 108, 0.8);
 	color: var(--divine-halo);
 	font-size: 0.68rem;
 	font-weight: 700;
@@ -203,14 +204,14 @@ h6 {
 	justify-content: space-between;
 	padding: 1.5rem;
 	border: 1px solid color-mix(in srgb, var(--divine-halo) 70%, transparent);
-	background: linear-gradient(145deg, rgba(64, 35, 99, 0.86), rgba(26, 19, 48, 0.82));
+	background: linear-gradient(145deg, rgba(38, 75, 110, 0.86), rgba(18, 33, 55, 0.86));
 	color: var(--starlight);
 	transition: background 180ms ease, transform 180ms ease;
 }
 
 .category-tab:hover,
 .category-tab:focus-visible {
-	background: linear-gradient(145deg, rgba(104, 58, 143, 0.92), rgba(45, 25, 73, 0.88));
+	background: linear-gradient(145deg, rgba(64, 119, 157, 0.92), rgba(27, 54, 83, 0.9));
 	transform: translateY(-4px);
 }
 
@@ -262,19 +263,19 @@ h6 {
 
 .button-primary {
 	border-color: var(--divine-halo);
-	background: #563485;
+	background: #3f769c;
 	color: var(--starlight);
 	box-shadow: 0 0 24px rgba(184, 155, 82, 0.14);
 }
 
 .button-primary:hover,
 .button-primary:focus-visible {
-	background: #7048a1;
+	background: #5d9cc0;
 }
 
 .button-secondary {
 	border-color: var(--divine-halo);
-	background: rgba(49, 30, 78, 0.58);
+	background: rgba(30, 58, 86, 0.66);
 	color: var(--starlight);
 }
 
@@ -491,19 +492,6 @@ h6 {
 	min-height: 100vh;
 	overflow: clip;
 	padding: 0 clamp(1.25rem, 5vw, 5rem);
-}
-
-.catalog-shell::before {
-	position: fixed;
-	z-index: -2;
-	inset: -10%;
-	content: "";
-	background:
-		linear-gradient(rgba(5, 6, 14, 0.54), rgba(5, 6, 14, 0.78)),
-		url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2400&q=85");
-	background-position: center;
-	background-size: cover;
-	filter: blur(3px);
 }
 
 .catalog-header {
