@@ -91,6 +91,287 @@ h6 {
 	text-transform: uppercase;
 }
 
+.account-entry {
+	max-width: 50rem;
+	padding: 10rem 0 8rem;
+}
+
+.eyebrow {
+	margin: 0 0 1rem;
+	color: var(--divine-halo);
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+.account-entry h1,
+.auth-intro h1,
+.admin-access h1,
+.admin-title-row h1 {
+	margin: 0;
+	font-size: clamp(2.2rem, 6vw, 5.5rem);
+	line-height: 0.98;
+}
+
+.account-entry-copy,
+.auth-intro > p:last-child,
+.form-heading > p:last-child {
+	max-width: 34rem;
+	margin: 2rem 0 0;
+	color: var(--cosmic-lavender);
+	line-height: 1.8;
+}
+
+.entry-actions,
+.admin-title-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.entry-actions {
+	justify-content: flex-start;
+	margin-top: 2.5rem;
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 3rem;
+	padding: 0.8rem 1.35rem;
+	border: 1px solid transparent;
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+	transform: translateY(-2px);
+}
+
+.button-primary {
+	background: var(--divine-halo);
+	color: var(--cosmic-void);
+}
+
+.button-secondary {
+	border-color: var(--cosmic-lavender);
+	color: var(--starlight);
+}
+
+.auth-shell,
+.admin-shell {
+	min-height: 100vh;
+	padding: 2rem clamp(1.25rem, 5vw, 5rem);
+}
+
+.back-link,
+.text-button {
+	color: var(--cosmic-lavender);
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.back-link:hover,
+.text-button:hover {
+	color: var(--starlight);
+}
+
+.auth-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(20rem, 28rem);
+	align-items: center;
+	gap: clamp(3rem, 10vw, 10rem);
+	max-width: 75rem;
+	margin: 8rem auto 0;
+}
+
+.auth-form,
+.admin-access {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.auth-form {
+	padding: 2rem;
+	border: 1px solid color-mix(in srgb, var(--cosmic-lavender) 30%, transparent);
+	background: var(--nebula-deep);
+}
+
+.form-heading {
+	margin-bottom: 1rem;
+}
+
+.form-heading h2 {
+	margin: 0;
+	font-size: 1.5rem;
+}
+
+.auth-form label {
+	color: var(--cosmic-lavender);
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.auth-form input,
+.catalog-row input {
+	width: 100%;
+	border: 1px solid color-mix(in srgb, var(--cosmic-lavender) 38%, transparent);
+	background: var(--cosmic-void);
+	color: var(--starlight);
+	font: inherit;
+	outline: none;
+}
+
+.auth-form input {
+	min-height: 3rem;
+	margin-bottom: 0.75rem;
+	padding: 0 0.85rem;
+}
+
+.auth-form input:focus,
+.catalog-row input:focus {
+	border-color: var(--divine-halo);
+}
+
+.form-note,
+.form-success,
+.form-error {
+	font-size: 0.75rem;
+	line-height: 1.5;
+}
+
+.form-note {
+	color: var(--cosmic-lavender);
+}
+
+.form-success {
+	color: var(--stellar-cyan);
+}
+
+.form-error {
+	color: #f29b9b;
+}
+
+.admin-access {
+	width: min(100%, 30rem);
+	margin: 8rem auto 0;
+}
+
+.access-tabs {
+	display: flex;
+	gap: 1.5rem;
+	margin: 1.5rem 0 0.5rem;
+	border-bottom: 1px solid color-mix(in srgb, var(--cosmic-lavender) 30%, transparent);
+}
+
+.access-tabs button {
+	padding: 0 0 0.75rem;
+	border-bottom: 2px solid transparent;
+	color: var(--cosmic-lavender);
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.access-tabs .tab-active {
+	border-color: var(--divine-halo);
+	color: var(--starlight);
+}
+
+.admin-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 88rem;
+	margin: 0 auto;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid color-mix(in srgb, var(--cosmic-lavender) 28%, transparent);
+}
+
+.admin-header .eyebrow {
+	margin: 0.75rem 0 0;
+}
+
+.admin-content {
+	max-width: 88rem;
+	margin: 5rem auto;
+}
+
+.admin-title-row h1 {
+	font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.catalog-table {
+	margin-top: 3rem;
+	border-top: 1px solid color-mix(in srgb, var(--cosmic-lavender) 30%, transparent);
+}
+
+.catalog-row {
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr;
+	align-items: center;
+	gap: 1rem;
+	min-height: 5rem;
+	border-bottom: 1px solid color-mix(in srgb, var(--cosmic-lavender) 20%, transparent);
+}
+
+.catalog-heading {
+	min-height: 3rem;
+	color: var(--cosmic-lavender);
+	font-size: 0.65rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.catalog-row input {
+	max-width: 8rem;
+	padding: 0.65rem;
+}
+
+.catalog-row label {
+	position: relative;
+}
+
+.input-suffix {
+	position: absolute;
+	right: 0.8rem;
+	top: 50%;
+	color: var(--cosmic-lavender);
+	font-size: 0.75rem;
+	transform: translateY(-50%);
+}
+
+.catalog-total {
+	color: var(--divine-halo);
+	font-family: var(--font-display);
+	font-size: 1.1rem;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
 @media (max-width: 640px) {
 	.site-shell {
 		padding: 0 1.25rem;
@@ -121,5 +402,46 @@ h6 {
 	.header-nav a {
 		font-size: 0.6rem;
 		letter-spacing: 0.1em;
+	}
+
+	.account-entry {
+		padding: 7rem 0 5rem;
+	}
+
+	.entry-actions,
+	.admin-title-row {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.entry-actions .button,
+	.admin-title-row .button {
+		width: 100%;
+	}
+
+	.auth-layout {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+		margin-top: 5rem;
+	}
+
+	.auth-form {
+		padding: 1.25rem;
+	}
+
+	.admin-access {
+		margin-top: 5rem;
+	}
+
+	.admin-content {
+		margin-top: 4rem;
+	}
+
+	.catalog-table {
+		overflow-x: auto;
+	}
+
+	.catalog-row {
+		min-width: 40rem;
 	}
 }

@@ -1,4 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+ # Etheral
+
+Tienda de ropa con estética celestial y moderna, construida con Next.js, Tailwind y Supabase.
+
+## Configurar Supabase
+
+1. Crea un proyecto en [Supabase](https://supabase.com/).
+2. Copia `.env.example` como `.env.local` y completa la URL y la publishable key desde **Project Settings > API**.
+3. Ejecuta `supabase/schema.sql` completo en el **SQL Editor** de Supabase.
+4. Registra una cuenta desde `/admin` y promuévela a admin con este SQL:
+
+```sql
+update public.profiles
+set role = 'admin'
+where id = (select id from auth.users where email = 'admin@etheral.com');
+```
+
+## Desarrollo local
 
 ## Getting Started
 
@@ -9,10 +26,10 @@ npm run dev
 # or
 yarn dev
 # or
-pnpm dev
+## Desarrollo local
 # or
 bun dev
-```
+Ejecuta el servidor de desarrollo:
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -23,9 +40,9 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Abre [http://localhost:3000](http://localhost:3000). Las rutas principales son `/`, `/registro` y `/admin`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+La aplicación se actualiza automáticamente al editar sus archivos.
 
 ## Deploy on Vercel
 
