@@ -32,6 +32,7 @@ export default function Home() {
           <Link href="/catalogo/camisetas">Camisetas</Link>
           <Link href="/catalogo/sudaderas">Sudaderas</Link>
           <Link href="/promociones">Promociones</Link>
+          <Link href="/combos">Combos</Link>
         </nav>
 
         <Link className="brand-mark" href="/" aria-label="Etheral, inicio">
@@ -80,11 +81,94 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="home-campaign" aria-labelledby="campaign-title">
+        <div className="home-campaign-media" role="img" aria-label="Texturas violetas de la colección Etheral" />
+        <div className="home-campaign-copy">
+          <p className="eyebrow">Etheral / Drop 01</p>
+          <h2 id="campaign-title">Una base para todo lo demás.</h2>
+          <p>Capas ligeras, tonos nocturnos y piezas que trabajan juntas.</p>
+          <Link className="button button-primary" href="/combos">Explorar combos</Link>
+        </div>
+      </section>
+
+      <section className="home-featured" aria-labelledby="featured-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Descubre Etheral</p>
+            <h2 id="featured-title">Hecho para combinar.</h2>
+          </div>
+          <Link className="text-link" href="/promociones">Ver novedades <span aria-hidden="true">↗</span></Link>
+        </div>
+        <div className="feature-grid">
+          <Link className="feature-card feature-card-purple" href="/promociones">
+            <span>Promociones</span>
+            <strong>Tu próxima pieza favorita.</strong>
+            <small>Comprar ahora ↗</small>
+          </Link>
+          <Link className="feature-card feature-card-coral" href="/combos">
+            <span>Combos</span>
+            <strong>Más juntos, mejor.</strong>
+            <small>Ver selección ↗</small>
+          </Link>
+          <Link className="feature-card feature-card-blue" href="/registro">
+            <span>Comunidad</span>
+            <strong>Entra en la órbita.</strong>
+            <small>Crear cuenta ↗</small>
+          </Link>
+        </div>
+      </section>
+
+      <section className="home-benefits" aria-label="Beneficios de comprar en Etheral">
+        <article>
+          <span className="benefit-number">01</span>
+          <h3>Envíos simples</h3>
+          <p>Envío gratis desde $450.000 a todo el país.</p>
+        </article>
+        <article>
+          <span className="benefit-number">02</span>
+          <h3>Cambios fáciles</h3>
+          <p>Prueba tus piezas con 30 días para cambios.</p>
+        </article>
+        <article>
+          <span className="benefit-number">03</span>
+          <h3>Compra con intención</h3>
+          <p>Diseños pensados para quedarse en tu armario.</p>
+        </article>
+      </section>
+
       <section className="home-statement" aria-labelledby="statement-title">
         <p className="eyebrow">Etheral / Estudio independiente</p>
         <h2 id="statement-title">Menos ruido.<br />Más intención.</h2>
         <p>Diseñamos un armario reducido para vivir mejor dentro de él.</p>
       </section>
+
+      <footer className="site-footer">
+        <div className="footer-brand">
+          <Link className="brand-mark" href="/">Etheral</Link>
+          <p>Ropa esencial para una vida en movimiento.</p>
+        </div>
+        <div className="footer-column">
+          <strong>Comprar</strong>
+          <Link href="/catalogo/camisetas">Camisetas</Link>
+          <Link href="/catalogo/sudaderas">Sudaderas</Link>
+          <Link href="/promociones">Promociones</Link>
+        </div>
+        <div className="footer-column">
+          <strong>Etheral</strong>
+          <Link href="/registro">Cuenta</Link>
+          <Link href="/combos">Combos</Link>
+          <Link href="/carrito">Carrito</Link>
+        </div>
+        <div className="footer-newsletter">
+          <strong>Únete al estudio</strong>
+          <p>Recibe novedades y lanzamientos en tu correo.</p>
+          <Link className="text-link" href="/registro">Suscribirme <span aria-hidden="true">↗</span></Link>
+        </div>
+        <div className="footer-bottom">
+          <span>© 2026 Etheral Studio</span>
+          <span>Hecho para moverse distinto.</span>
+        </div>
+      </footer>
 
       {isCartOpen && (
         <>

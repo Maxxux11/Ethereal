@@ -348,6 +348,153 @@ p { margin: 0; }
 .home-statement h2 { color: var(--ink); text-shadow: 0 0 36px rgba(192, 132, 252, 0.18); }
 .home-statement > p:last-child { max-width: 15rem; color: var(--muted); line-height: 1.7; }
 
+.home-campaign {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  max-width: var(--max-width);
+  min-height: 34rem;
+  margin: 0 auto clamp(5rem, 10vw, 9rem);
+  border: 1px solid var(--line);
+  background: rgba(16, 6, 30, 0.82);
+  box-shadow: 0 2rem 5rem rgba(3, 0, 10, 0.32);
+}
+
+.home-campaign-media {
+  min-height: 30rem;
+  background:
+    linear-gradient(145deg, rgba(73, 22, 126, 0.3), rgba(7, 2, 16, 0.56)),
+    url("https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=1400&q=90") center / cover;
+  filter: saturate(1.25) hue-rotate(8deg);
+}
+
+.home-campaign-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.home-campaign-copy h2 {
+  max-width: 24rem;
+  font-size: clamp(2.2rem, 4vw, 4.5rem);
+  line-height: 0.95;
+}
+
+.home-campaign-copy p:not(.eyebrow) {
+  max-width: 19rem;
+  margin: 1.5rem 0 2rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.home-featured {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  position: relative;
+  display: flex;
+  min-height: 19rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: 0 1.5rem 3rem rgba(3, 0, 10, 0.26);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.feature-card::after {
+  position: absolute;
+  right: -15%;
+  bottom: -35%;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: "";
+  background: rgba(255, 255, 255, 0.18);
+  filter: blur(28px);
+}
+
+.feature-card:hover,
+.feature-card:focus-visible {
+  box-shadow: 0 2rem 4rem rgba(3, 0, 10, 0.42);
+  transform: translateY(-6px);
+}
+
+.feature-card span,
+.feature-card small {
+  position: relative;
+  z-index: 1;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.feature-card strong {
+  position: relative;
+  z-index: 1;
+  max-width: 12rem;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.feature-card-purple { background: linear-gradient(140deg, #6e27c5, #29124e); }
+.feature-card-coral { background: linear-gradient(140deg, #d45f72, #72295c); }
+.feature-card-blue { background: linear-gradient(140deg, #2d8fb1, #163c74); }
+
+.home-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.home-benefits article {
+  min-height: 12rem;
+  padding: 2rem 1.5rem 2.5rem 0;
+  border-right: 1px solid var(--line);
+}
+
+.home-benefits article:not(:first-child) { padding-left: 1.5rem; }
+.home-benefits article:last-child { border-right: 0; }
+.benefit-number { color: var(--accent); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; }
+.home-benefits h3 { margin-top: 2rem; font-size: 1.05rem; }
+.home-benefits p { max-width: 15rem; margin-top: 0.65rem; color: var(--muted); font-size: 0.76rem; line-height: 1.7; }
+
+.site-footer {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(2, 0.7fr) 1.2fr;
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 0 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-brand p,
+.footer-newsletter p { max-width: 14rem; margin-top: 1.25rem; color: var(--muted); font-size: 0.75rem; line-height: 1.7; }
+.footer-column, .footer-newsletter { display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+.footer-column strong, .footer-newsletter strong { margin-bottom: 0.5rem; color: var(--accent); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.footer-column a { color: var(--muted); font-size: 0.75rem; }
+.footer-column a:hover { color: var(--ink); }
+.footer-bottom { grid-column: 1 / -1; display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.65rem; }
+
 .catalog-shell { background: transparent; }
 .catalog-announcement {
   max-width: var(--max-width);
@@ -470,19 +617,29 @@ p { margin: 0; }
 
 @media (max-width: 720px) {
   .site-shell, .catalog-shell { padding: 0 1rem; }
-  .site-header { grid-template-columns: 1fr 1fr; min-height: 7.5rem; padding-top: 2rem; }
-  .announcement-bar { grid-column: 1 / -1; grid-row: 1; font-size: 0.52rem; }
+  .site-header { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 7.5rem; padding-top: 2rem; }
+  .announcement-bar { grid-column: 1 / -1; grid-row: 1; min-width: 0; overflow: hidden; font-size: 0.52rem; white-space: nowrap; }
   .brand-mark { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
-  .header-nav { grid-row: 3; gap: 0.8rem; }
+  .header-nav { grid-row: 3; min-width: 0; gap: 0.8rem; overflow: hidden; }
   .header-nav-right { justify-content: end; }
   .header-nav a, .cart-trigger { font-size: 0.55rem; letter-spacing: 0.05em; }
   .home-hero { grid-template-columns: 1fr; }
   .home-hero-copy { min-height: 28rem; padding: 4rem 0; }
   .home-hero h1 { font-size: clamp(3.3rem, 16vw, 5rem); }
   .home-hero-media { min-height: 24rem; }
+  .home-campaign { grid-template-columns: 1fr; }
+  .home-campaign-media { min-height: 20rem; }
+  .home-campaign-copy { min-height: 24rem; padding: 2rem 1.5rem 2.5rem; }
   .section-heading, .catalog-content > .catalog-heading { align-items: start; flex-direction: column; }
   .category-tabs, .catalog-products { grid-template-columns: 1fr; }
   .category-tab { min-height: 22rem; }
+  .feature-grid, .home-benefits { grid-template-columns: 1fr; }
+  .home-benefits article, .home-benefits article:not(:first-child) { min-height: auto; padding: 1.5rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .home-benefits article:last-child { border-bottom: 0; }
+  .home-benefits h3 { margin-top: 1rem; }
+  .site-footer { grid-template-columns: 1fr 1fr; gap: 3rem 1.5rem; }
+  .footer-brand, .footer-newsletter { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; margin-top: 1rem; }
   .home-statement { grid-template-columns: 1fr; gap: 2rem; }
   .home-statement h2 { font-size: clamp(3rem, 14vw, 5rem); }
   .catalog-header { grid-template-columns: 1fr 1fr; min-height: 7rem; }
