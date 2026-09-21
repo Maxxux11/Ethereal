@@ -35,10 +35,18 @@ const formatCOP = (price: number) =>
 export default function CombosPage() {
   return (
     <main className="catalog-shell">
+      <div className="catalog-announcement">Envío gratis desde $450.000 <span aria-hidden="true">•</span> Cambios durante 30 días</div>
       <header className="catalog-header">
-        <Link className="back-link" href="/">← Volver a Etheral</Link>
+        <nav className="catalog-nav" aria-label="Navegación de tienda">
+          <Link href="/">Inicio</Link>
+          <Link href="/catalogo/camisetas">Colección</Link>
+          <Link href="/promociones">Promos</Link>
+        </nav>
         <Link className="brand-mark" href="/" aria-label="Etheral, inicio">Etheral</Link>
-        <Link className="catalog-cart-link" href="/carrito">Carrito</Link>
+        <nav className="catalog-actions" aria-label="Acciones de cuenta">
+          <Link href="/registro">Cuenta</Link>
+          <Link href="/carrito">Carrito</Link>
+        </nav>
       </header>
       <section className="catalog-content" aria-labelledby="combos-title">
         <p className="eyebrow">Piezas que orbitan juntas</p>

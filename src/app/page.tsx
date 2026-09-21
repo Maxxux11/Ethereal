@@ -27,9 +27,11 @@ export default function Home() {
   return (
     <main className="site-shell">
       <header className="site-header">
+        <div className="announcement-bar">Envío gratis desde $450.000 <span aria-hidden="true">•</span> Cambios durante 30 días</div>
         <nav className="header-nav header-nav-left" aria-label="Navegación principal">
-          <Link href="/combos">Combos</Link>
-          <Link href="/promociones">Descuentos</Link>
+          <Link href="/catalogo/camisetas">Camisetas</Link>
+          <Link href="/catalogo/sudaderas">Sudaderas</Link>
+          <Link href="/promociones">Promociones</Link>
         </nav>
 
         <Link className="brand-mark" href="/" aria-label="Etheral, inicio">
@@ -44,29 +46,44 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="account-entry" aria-labelledby="account-entry-title">
-        <p className="eyebrow">Universo Etheral</p>
-        <h1 id="account-entry-title">Tu órbita empieza aquí</h1>
-        <p className="account-entry-copy">
-          Regístrate para recibir novedades y gestiona la colección desde el
-          espacio privado de la marca.
-        </p>
-        <div className="entry-actions">
-          <Link className="button button-primary" href="/registro">Crear cuenta</Link>
+      <section className="home-hero" aria-labelledby="account-entry-title">
+        <div className="home-hero-copy">
+          <p className="eyebrow">Nueva colección / 2026</p>
+          <h1 id="account-entry-title">Vestir lo esencial.</h1>
+          <p className="account-entry-copy">
+            Piezas pensadas para todos los días. Siluetas precisas, materiales honestos y una paleta que deja espacio para ti.
+          </p>
+          <div className="entry-actions">
+            <Link className="button button-primary" href="/catalogo/camisetas">Ver colección</Link>
+            <Link className="text-link" href="/registro">Únete a Etheral <span aria-hidden="true">↗</span></Link>
+          </div>
         </div>
+        <div className="home-hero-media" role="img" aria-label="Colección Etheral en tonos oscuros" />
       </section>
 
       <section className="category-section" aria-labelledby="category-title">
-        <p className="eyebrow">Explora la colección</p>
-        <h2 id="category-title">Elige tu dimensión</h2>
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Compra por categoría</p>
+            <h2 id="category-title">Lo que necesitas.</h2>
+          </div>
+          <Link className="text-link" href="/catalogo/camisetas">Ver todo <span aria-hidden="true">↗</span></Link>
+        </div>
         <div className="category-tabs" role="tablist" aria-label="Categorías de ropa">
           {categories.map((category) => (
             <Link className="category-tab" href={`/catalogo/${category.slug}`} key={category.slug}>
+              <span className="category-tab-image" aria-hidden="true" />
               <span>{category.label}</span>
               <small>{category.count}</small>
             </Link>
           ))}
         </div>
+      </section>
+
+      <section className="home-statement" aria-labelledby="statement-title">
+        <p className="eyebrow">Etheral / Estudio independiente</p>
+        <h2 id="statement-title">Menos ruido.<br />Más intención.</h2>
+        <p>Diseñamos un armario reducido para vivir mejor dentro de él.</p>
       </section>
 
       {isCartOpen && (

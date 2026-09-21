@@ -17,10 +17,18 @@ export default function CartPage() {
 
   return (
     <main className="catalog-shell">
+      <div className="catalog-announcement">Envío gratis desde $450.000 <span aria-hidden="true">•</span> Cambios durante 30 días</div>
       <header className="catalog-header">
-        <Link className="back-link" href="/">← Volver a Etheral</Link>
+        <nav className="catalog-nav" aria-label="Navegación de tienda">
+          <Link href="/">Inicio</Link>
+          <Link href="/catalogo/camisetas">Colección</Link>
+          <Link href="/promociones">Promos</Link>
+        </nav>
         <Link className="brand-mark" href="/" aria-label="Etheral, inicio">Etheral</Link>
-        <span className="catalog-cart-link">Carrito</span>
+        <nav className="catalog-actions" aria-label="Acciones de cuenta">
+          <Link href="/registro">Cuenta</Link>
+          <span className="catalog-cart-link">Carrito</span>
+        </nav>
       </header>
       <section className="cart-page-content" aria-labelledby="cart-page-title">
         <p className="eyebrow">Tu selección</p>
