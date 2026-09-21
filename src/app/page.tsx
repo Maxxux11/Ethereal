@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { catalogProducts } from "@/lib/catalog";
 
 const cartItems = [
-  { id: 1, name: "Órbita tee", detail: "Negro / M", price: 189900 },
-  { id: 2, name: "Nebula hoodie", detail: "Índigo / L", price: 329900 },
+  { productId: 4, detail: "Negro / M" },
+  { productId: 7, detail: "Índigo / L" },
 ];
 
 const categories = [
@@ -23,6 +24,11 @@ const formatCOP = (price: number) =>
 
 export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const items = cartItems.map((item) => {
+    const product = catalogProducts.find(({ id }) => id === item.productId);
+    if (!product) return null;
+    return { ...product, cartDetail: item.detail };
+  }).filter((item) => item !== null);
 
   return (
     <main className="site-shell">
@@ -48,6 +54,7 @@ export default function Home() {
       </header>
 
       <section className="home-hero" aria-labelledby="account-entry-title">
+        <div className="home-hero-media" role="img" aria-label="Colección Etheral en tonos oscuros" />
         <div className="home-hero-copy">
           <p className="eyebrow">Nueva colección / 2026</p>
           <h1 id="account-entry-title">Vestir lo esencial.</h1>
@@ -59,7 +66,6 @@ export default function Home() {
             <Link className="text-link" href="/registro">Únete a Etheral <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
-        <div className="home-hero-media" role="img" aria-label="Colección Etheral en tonos oscuros" />
       </section>
 
       <section className="category-section" aria-labelledby="category-title">
@@ -81,44 +87,56 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-campaign" aria-labelledby="campaign-title">
-        <div className="home-campaign-media" role="img" aria-label="Texturas violetas de la colección Etheral" />
-        <div className="home-campaign-copy">
-          <p className="eyebrow">Etheral / Drop 01</p>
-          <h2 id="campaign-title">Una base para todo lo demás.</h2>
-          <p>Capas ligeras, tonos nocturnos y piezas que trabajan juntas.</p>
-          <Link className="button button-primary" href="/combos">Explorar combos</Link>
+      <section className="home-setup" aria-labelledby="setup-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Arma tu universo</p>
+            <h2 id="setup-title">Personaliza tu órbita.</h2>
+          </div>
+          <Link className="text-link" href="/combos">Empezar con una pieza <span aria-hidden="true">↗</span></Link>
+        </div>
+        <div className="setup-grid">
+          <Link className="setup-card setup-card-main" href="/catalogo/camisetas">
+            <div className="setup-card-image" aria-hidden="true" />
+            <span>01 / Empieza por la base</span>
+            <strong>Camisetas</strong>
+          </Link>
+          <Link className="setup-card setup-card-side" href="/catalogo/sudaderas">
+            <div className="setup-card-image" aria-hidden="true" />
+            <span>02 / Añade una capa</span>
+            <strong>Sudaderas</strong>
+          </Link>
         </div>
       </section>
 
       <section className="home-featured" aria-labelledby="featured-title">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Descubre Etheral</p>
-            <h2 id="featured-title">Hecho para combinar.</h2>
+            <p className="eyebrow">Compra directo</p>
+            <h2 id="featured-title">Más razones para elegir Etheral.</h2>
           </div>
-          <Link className="text-link" href="/promociones">Ver novedades <span aria-hidden="true">↗</span></Link>
+          <Link className="text-link" href="/registro">Conocer más <span aria-hidden="true">↗</span></Link>
         </div>
         <div className="feature-grid">
           <Link className="feature-card feature-card-purple" href="/promociones">
-            <span>Promociones</span>
-            <strong>Tu próxima pieza favorita.</strong>
-            <small>Comprar ahora ↗</small>
+            <span>Selección Etheral</span>
+            <strong>Promociones y bundles exclusivos.</strong>
+            <small>Ver ofertas ↗</small>
           </Link>
           <Link className="feature-card feature-card-coral" href="/combos">
-            <span>Combos</span>
-            <strong>Más juntos, mejor.</strong>
+            <span>Hecho para combinar</span>
+            <strong>Combos que ya tienen sentido.</strong>
             <small>Ver selección ↗</small>
           </Link>
           <Link className="feature-card feature-card-blue" href="/registro">
-            <span>Comunidad</span>
-            <strong>Entra en la órbita.</strong>
-            <small>Crear cuenta ↗</small>
+            <span>Comunidad Etheral</span>
+            <strong>Novedades antes que nadie.</strong>
+            <small>Unirme ↗</small>
           </Link>
         </div>
       </section>
 
-      <section className="home-benefits" aria-label="Beneficios de comprar en Etheral">
+      <section className="home-benefits" aria-label="Beneficios de comprar directamente en Etheral">
         <article>
           <span className="benefit-number">01</span>
           <h3>Envíos simples</h3>
@@ -136,10 +154,27 @@ export default function Home() {
         </article>
       </section>
 
-      <section className="home-statement" aria-labelledby="statement-title">
-        <p className="eyebrow">Etheral / Estudio independiente</p>
-        <h2 id="statement-title">Menos ruido.<br />Más intención.</h2>
-        <p>Diseñamos un armario reducido para vivir mejor dentro de él.</p>
+      <section className="home-experience" aria-labelledby="experience-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Experiencia Etheral</p>
+            <h2 id="experience-title">El universo detrás de las piezas.</h2>
+          </div>
+        </div>
+        <div className="experience-grid">
+          <Link className="experience-card experience-card-large" href="/catalogo/sudaderas">
+            <span>01 / Texturas y capas</span>
+            <strong>Profundidad para todos los días.</strong>
+          </Link>
+          <Link className="experience-card experience-card-small" href="/promociones">
+            <span>02 / Ediciones</span>
+            <strong>Colores que cambian la órbita.</strong>
+          </Link>
+          <Link className="experience-card experience-card-small" href="/registro">
+            <span>03 / Guías</span>
+            <strong>Encuentra tu siguiente combinación.</strong>
+          </Link>
+        </div>
       </section>
 
       <footer className="site-footer">
@@ -182,11 +217,12 @@ export default function Home() {
               <button className="drawer-close" onClick={() => setIsCartOpen(false)} type="button" aria-label="Cerrar carrito">×</button>
             </div>
             <div className="cart-items">
-              {cartItems.map((item) => (
+              {items.map((item) => (
                 <div className="cart-item" key={item.id}>
+                  <div className="cart-item-image" style={{ backgroundImage: `url(${item.image})` }} role="img" aria-label={item.name} />
                   <div>
                     <strong>{item.name}</strong>
-                    <span>{item.detail}</span>
+                    <span>{item.cartDetail}</span>
                   </div>
                   <span>{formatCOP(item.price)}</span>
                 </div>
@@ -194,7 +230,7 @@ export default function Home() {
             </div>
             <div className="cart-summary">
               <span>Subtotal</span>
-              <strong>{formatCOP(cartItems.reduce((total, item) => total + item.price, 0))}</strong>
+              <strong>{formatCOP(items.reduce((total, item) => total + item.price, 0))}</strong>
             </div>
             <Link className="button button-primary cart-checkout" href="/carrito">Abrir carrito</Link>
           </aside>

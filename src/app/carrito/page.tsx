@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { catalogProducts } from "@/lib/catalog";
 
 const cartItems = [
-  { id: 1, name: "Órbita tee", detail: "Negro / M", price: 189900 },
-  { id: 2, name: "Nebula hoodie", detail: "Índigo / L", price: 329900 },
+  { productId: 4, detail: "Negro / M" },
+  { productId: 7, detail: "Índigo / L" },
 ];
 
 const formatCOP = (price: number) =>
@@ -13,7 +14,12 @@ const formatCOP = (price: number) =>
   }).format(price);
 
 export default function CartPage() {
-  const subtotal = cartItems.reduce((total, item) => total + item.price, 0);
+  const items = cartItems.map((item) => {
+    const product = catalogProducts.find(({ id }) => id === item.productId);
+    if (!product) return null;
+    return { ...product, cartDetail: item.detail };
+  }).filter((item) => item !== null);
+  const subtotal = items.reduce((total, item) => total + item.price, 0);
 
   return (
     <main className="catalog-shell">
@@ -34,11 +40,12 @@ export default function CartPage() {
         <p className="eyebrow">Tu selección</p>
         <h1 id="cart-page-title">Carrito</h1>
         <div className="cart-page-items">
-          {cartItems.map((item) => (
+          {items.map((item) => (
             <article className="cart-page-item" key={item.id}>
+              <div className="cart-product-image" style={{ backgroundImage: `url(${item.image})` }} role="img" aria-label={item.name} />
               <div>
                 <h2>{item.name}</h2>
-                <p>{item.detail}</p>
+                <p>{item.cartDetail}</p>
               </div>
               <strong>{formatCOP(item.price)}</strong>
             </article>
